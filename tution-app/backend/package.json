@@ -1,0 +1,17 @@
+{
+  "name": "student-homework",
+  "version": "1.0.0",
+  "description": "do the hm and click the clear button ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aagja krish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.2",
+    "zod": "^3.22.4"
+  }
+}

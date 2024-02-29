@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice Your Self</title>
+</head>
+<body>
+    <div>
+        <input id="title" type="text" placeholder="Title"><br></br>
+        <input id="description" type="text" placeholder="Discription"><br></br>
+        <button onclick="addNote()">Add note</button><br></br>
+
+        <!-- Create the new id cause we can add new note in these id. -->
+        <div id="container"></div>
+    </div>
+
+    <script>
+
+        let globalId = 1;
+        function markAsView(Id){
+            const viewNote = document.getElementById(Id);
+            viewNote.children[2].innerHTML = "Done as view!"
+        }
+
+        function createNote(title, description, id){
+            const note = document.createElement("div");
+
+            const firstNote = document.createElement("div");
+            firstNote.innerHTML = title;
+            const secondNote = document.createElement("div");
+            secondNote.innerHTML = description;
+            const thirdNote = document.createElement("button");
+            thirdNote.innerHTML = "Mark as done";
+            thirdNote.setAttribute("onclick", `markAsView(${id})`);
+
+            // Add child in all note of details
+            note.appendChild(firstNote)
+            note.appendChild(secondNote)
+            note.appendChild(thirdNote)
+            
+            note.setAttribute("id", id)
+            return note;
+        }
+
+        function addNote(){
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const mainPartOfNote = document.getElementById("container");
+
+            mainPartOfNote.appendChild(createNote(title, description, globalId++));
+        }
+    </script>
+</body>
+</html>
